@@ -1,0 +1,14 @@
+{
+  "name": "hyperterm-material-theme",
+  "author": "Nauzet Hernandez <nauzethc@gmail.com> (http://www.nauzethdez.com)",
+  "version": "0.1.0",
+  "homepage": "https://github.com/nauzethc/hyperterm-material-theme",
+  "keywords": ["hyperterm", "material", "ui", "theme"],
+  "description": "HyperTerm theme inspired on Atom Material theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nauzethc/hyperterm-material-theme"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}
