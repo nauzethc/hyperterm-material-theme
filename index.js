@@ -103,7 +103,7 @@ exports.decorateConfig = (config, t) => {
 
   const palette = {
     dark: {
-      borderColor: '#AABBC3',
+      borderColor: '#263238',
       cursorColor: '#AABBC3',
       foregroundColor: '#AABBC3',
       backgroundColor: '#263238',
@@ -128,7 +128,7 @@ exports.decorateConfig = (config, t) => {
     },
 
     light: {
-      borderColor: '#607D8B',
+      borderColor: '#AABBC3',
       cursorColor: '#607D8B',
       foregroundColor: '#607D8B',
       backgroundColor: '#FAFAFA',
