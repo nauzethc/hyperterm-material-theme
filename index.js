@@ -1,3 +1,47 @@
+function getClickCoords(e) {
+  if (e.x !== undefined) {
+    return { x: e.x, y: e.y };
+  } else if (e.clientX !== undefined) {
+    return { x: e.clientX, y: e.clientY }
+  } else{
+    return { x: 0, y: 0 };
+  }
+}
+
+exports.decorateTab = (Tab, { React }) => {
+
+  return class MaterialTab extends React.Component {
+    render() {
+      return React.createElement(Tab, Object.assign({}, this.props, {
+
+        onClick: (e) => {
+          // Create ripple effect
+          const ripple = document.createElement('div');
+          ripple.classList.add('ripple');
+
+          const bounds = e.target.getBoundingClientRect();
+          const coords = getClickCoords(e);
+          const size   = Math.max(bounds.width, bounds.height);
+          const x      = coords.x - bounds.left - size/2;
+          const y      = coords.y - bounds.top  - size/2;
+
+          ripple.setAttribute('style', `
+            width: ${size}px; height: ${size}px;
+            top: ${y}px; left: ${x}px;
+          `);
+
+          e.target.parentNode.appendChild(ripple);
+          console.log('wave add');
+          setTimeout(() => { ripple.remove(); console.log('wave del') }, 1000);
+        }
+
+      }));
+    }
+  }
+
+};
+
+
 exports.decorateConfig = (config, t) => {
 
   let primary, accent, text;
@@ -184,7 +228,26 @@ exports.decorateConfig = (config, t) => {
         .tabs_nav .tabs_list .tab_tab.tab_active .tab_text {
           border: 0;
         }
+        .ripple {
+          opacity: 0;
+          animation: ripple .6s;
+          display: block;
+          overflow: hidden;
+          position: absolute;
+          background-color: rgba(255,255,255,0.5);
+          border-radius: 100%;
+        }
+
+        @keyFrames ripple {
+          from {
+            opacity: 1;
+            transform: scale(0);
+          } to {
+            opacity: 0;
+            transform: scale(2.5);
+          }
+        }
       `
     }
   );
-}
+};
