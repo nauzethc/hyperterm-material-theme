@@ -31,8 +31,7 @@ exports.decorateTab = (Tab, { React }) => {
           `);
 
           e.target.parentNode.appendChild(ripple);
-          console.log('wave add');
-          setTimeout(() => { ripple.remove(); console.log('wave del') }, 1000);
+          setTimeout(() => { ripple.remove(); }, 1000);
         }
 
       }));
@@ -221,12 +220,8 @@ exports.decorateConfig = (config, t) => {
         .tabs_nav .tabs_list .tab_tab:not(.tab_active):hover {
           color: white;
         }
-        .tabs_nav .tabs_list .tab_tab.tab_active::before {
+        .tabs_nav .tabs_list .tab_active .tab_text {
           border-bottom: 3px solid ${accent};
-          bottom: 0;
-        }
-        .tabs_nav .tabs_list .tab_tab.tab_active .tab_text {
-          border: 0;
         }
         .ripple {
           opacity: 0;
@@ -236,6 +231,9 @@ exports.decorateConfig = (config, t) => {
           position: absolute;
           background-color: rgba(255,255,255,0.5);
           border-radius: 100%;
+        }
+        .terms_terms .terms_termGroup .splitpane_panes .splitpane_divider {
+          background-color: ${(config.materialSyntax === 'light') ? '#607D8B':'#AABBC3'} !important;
         }
 
         @keyFrames ripple {
