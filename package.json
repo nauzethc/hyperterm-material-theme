@@ -4,10 +4,12 @@
   "version": "0.1.2",
   "homepage": "https://github.com/nauzethc/hyperterm-material-theme",
   "keywords": [
+    "hyper",
     "hyperterm",
     "material",
     "ui",
-    "theme"
+    "theme",
+    "syntax"
   ],
   "description": "HyperTerm theme inspired on Atom Material theme",
   "repository": {
